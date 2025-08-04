@@ -2,8 +2,8 @@ import Navbar from "./Navbar";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen  bg-gradient-to-b from-[#f7efe6] to-white">
-      <Navbar />
+    <div className="min-h-screen">
+   
       <div className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold text-center text-green-800 mb-10">
           Contact Us ✉️

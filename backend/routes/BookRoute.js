@@ -117,4 +117,26 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
+router.put('/sell/:id'  , async(req,res)=>{
+ try{
+   const id=req.params.id;
+  const  {quantity} =req.body;
+
+  const book = await Book.findById(id);
+  if(!book) return res.status(404).json({message:"Book not found"});
+  console.log("Book Found")
+
+  if(book.quantity < quantity) return res.status(404).json({message:"Quantity zyda dali hai"});
+  console.log("Quantity bhi barobar hai ")
+
+  book.quantity -=quantity;
+  await book.save();
+   res.status(200).json({ message: 'Book sold successfully', book })
+
+ }catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+})
+
+
 module.exports = router;

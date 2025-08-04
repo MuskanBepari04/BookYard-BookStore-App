@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { IoSearch } from "react-icons/io5";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { FaAnglesRight } from "react-icons/fa6";
@@ -10,6 +11,7 @@ import { BiShow } from "react-icons/bi";
 import BookModal from "./BookModal";
 const ShowBookByGenre = () => {
   const [book, setBook] = useState([]);
+    const [searchInput, setSearchInput] = useState("");
   const [showModal, setShowModal] = useState(false);
   const genres = [
     "self help",
@@ -52,16 +54,28 @@ const ShowBookByGenre = () => {
   }, []);
 
   return (
-    <>
-      <div className="flex justify-between mb-8">
+    <div className="bg-gradient-to-b from-[#e6d6be] to-white p-6">
+      <div className="flex justify-between mb-8 pt-2 mx-8">
         <h2 className="font-bold text-2xl times2">Avaliable Books : </h2>
+         <div className=" border-2 items-center gap-3 p-1.5 px-4 rounded-3xl hidden md:flex">
+                  <input
+                    type="text"
+                    placeholder="Search Any Book"
+                    className="bg-transparent outline-none"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                  />
+                  <Link to={`/books/title/${searchInput}`}>
+                    <IoSearch className="text-3xl" />
+                  </Link>
+                </div>
         <div className="flex justify-around">
           <Link
             to={`/books/add`}
-            className="shadow-2xl flex gap-2 justify-center items-center bg-[#E07A5F] hover:bg-[#81B29A] cursor-pointer p-2.5 text-lg rounded-xl hover:text-white"
+            className="shadow-2xl flex gap-2 justify-center items-center bg-[#E07A5F] hover:bg-[#81B29A] cursor-pointer px-3.5 p-2.5 text-lg rounded-4xl hover:text-white"
           >
             <MdOutlineAddBox className="text-2xl" />
-            Add New Book
+            Add Book
           </Link>
         </div>
       </div>
@@ -116,7 +130,7 @@ const ShowBookByGenre = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -17,7 +17,8 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${apiUrl}/auth/signup`, form);
+     const response= await axios.post(`${apiUrl}/auth/signup`, form)
+     localStorage.setItem("token", response.data.token);
       navigate("/books");
     } catch (err) {
       console.log(err);

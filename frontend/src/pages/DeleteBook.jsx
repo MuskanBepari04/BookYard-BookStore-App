@@ -39,14 +39,14 @@ const DeleteBook = () => {
         <div className="flex justify-center gap-4">
           <button
             onClick={handleDeleteBook}
-            className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md font-medium transition duration-200"
+            className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md font-medium cursor-pointer transition duration-200"
           >
             Yes, Delete
           </button>
 
           <button
             onClick={() => navigate("/books")}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-md font-medium transition duration-200"
+            className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-md font-medium cursor-pointer transition duration-200"
           >
             Cancel
           </button>

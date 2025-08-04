@@ -5,13 +5,15 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineDelete } from "react-icons/md";
 import { BiShow } from "react-icons/bi";
+import { IoSearch } from "react-icons/io5";
+import { MdOutlineAddBox } from "react-icons/md";
 import BookModal from "./BookModal";
-import Navbar from "../Navbar";
 
 const BooksByGenre = () => {
   const { genre } = useParams();
   const [book, setBook] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
 
   const apiUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
@@ -33,8 +35,31 @@ const BooksByGenre = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="mt-10 px-4 mb-4">
+      <div className=" px-8 bg-gradient-to-b from-[#e6d6be] to-white">
+        <div className="flex justify-between mb-8 pt-4">
+          <h2 className="font-bold text-2xl times2">Avaliable Books : </h2>
+          <div className=" border-2 items-center gap-3 p-1.5 px-4 rounded-3xl hidden md:flex">
+            <input
+              type="text"
+              placeholder="Search Any Book"
+              className="bg-transparent outline-none"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+            <Link to={`/books/title/${searchInput}`}>
+              <IoSearch className="text-3xl" />
+            </Link>
+          </div>
+          <div className="flex justify-around">
+            <Link
+              to={`/books/add`}
+              className="shadow-2xl flex gap-2 justify-center items-center bg-[#E07A5F] hover:bg-[#81B29A] cursor-pointer px-3.5 p-2.5 text-lg rounded-4xl hover:text-white"
+            >
+              <MdOutlineAddBox className="text-2xl" />
+              Add Book
+            </Link>
+          </div>
+        </div>
         <h1 className="text-2xl font-semibold mb-10">
           Books in Genre: {genre}
         </h1>

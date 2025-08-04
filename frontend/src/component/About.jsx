@@ -1,12 +1,12 @@
 import Navbar from "./Navbar";
+import { FaCartShopping } from "react-icons/fa6";
 
 const About = () => {
   return (
-    <div className="bg-gradient-to-b from-[#e6d6be] to-white min-h-screen">
-      <Navbar />
+    <div className=" min-h-screen">
       <div className="max-w-5xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold text-center text-green-800 mb-8">
-          About BookYard 📚
+          About BookYard 📚 <FaCartShopping />
         </h1>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -54,9 +54,6 @@ const About = () => {
           </ul>
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 italic">Made with ❤️ by Muskan Bepari</p>
-        </div>
       </div>
     </div>
   );

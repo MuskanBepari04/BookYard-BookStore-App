@@ -1,4 +1,5 @@
-import HeroSection from "../component/homeComponents/HeroSection";
+// import HeroSection from "../component/homeComponents/HeroSection";
+import HeroSection from "../component/bookComponents/HeroSection";
 import Footer from "../component/Footer";
 import About from "../component/About";
 import Contact from "../component/Contact";

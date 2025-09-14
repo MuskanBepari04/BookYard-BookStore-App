@@ -6,13 +6,14 @@ import DeleteBook from './pages/DeleteBook'
 import AddBook from './pages/AddBook'
 import Home from './pages/Home'
 import About from './component/About.jsx'
-import ShowBookByName from './component/homeComponents/ShowBookByName.jsx'
-import BooksByGenre from './component/homeComponents/BooksByGenre.jsx'
+import ShowBookByName from './component/bookComponents/ShowBookByName.jsx'
+import BooksByGenre from './component/bookComponents/BooksByGenre.jsx'
 import Contact from './component/Contact.jsx'
 import Signup from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 import ForgotPassword from './pages/ForgotPassword.jsx'
-import ShowBookByGenre from './component/homeComponents/ShowBookByGenre.jsx'
+import ShowBookByGenre from './component/bookComponents/ShowBookByGenre.jsx'
+
 
 const App = () => {
   return (

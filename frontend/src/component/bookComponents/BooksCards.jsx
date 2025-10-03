@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineDelete } from "react-icons/md";
-import { BiShow } from "react-icons/bi";
-import BookModal from "./BookModal";
+
 const BooksCards = ({ books }) => {
-  const [showModal, setShowModal] = useState(false);
+
   const apiUrl = import.meta.env.VITE_API_URL;
 
   return (
@@ -28,10 +27,7 @@ const BooksCards = ({ books }) => {
           <div className="times text-lg font-semibold">{book.title}</div>
           <div className="times2">By {book.author}</div>
           <div className="flex gap-8 mt-2">
-            <BiShow
-              className="text-3xl hover:text-blue-800 text-black cursor-pointer"
-              onClick={() => setShowModal(true)}
-            />
+           
             <Link to={`/books/${book._id}`}>
               <BsInfoCircle className="text-2xl hover:text-blue-800" />
             </Link>
@@ -42,9 +38,7 @@ const BooksCards = ({ books }) => {
               <MdOutlineDelete className="text-2xl hover:text-blue-800" />
             </Link>
           </div>
-          {showModal && (
-            <BookModal book={book} onClose={() => setShowModal(false)} />
-          )}
+         
         </div>
       ))}
     </div>

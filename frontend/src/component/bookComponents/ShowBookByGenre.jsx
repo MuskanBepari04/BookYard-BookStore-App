@@ -7,12 +7,11 @@ import { BsInfoCircle } from "react-icons/bs";
 import { FaAnglesRight } from "react-icons/fa6";
 import { MdOutlineDelete } from "react-icons/md";
 import { MdOutlineAddBox } from "react-icons/md";
-import { BiShow } from "react-icons/bi";
-import BookModal from "./BookModal";
+
 const ShowBookByGenre = () => {
   const [book, setBook] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-  const [showModal, setShowModal] = useState(false);
+ 
   const genres = [
     "self help",
     "fiction",
@@ -108,10 +107,7 @@ const ShowBookByGenre = () => {
                 <div className="times text-lg font-semibold">{book.title}</div>
                 <div className="times2">By {book.author}</div>
                 <div className="flex gap-8 mt-2">
-                  <BiShow
-                    className="text-3xl hover:text-blue-800 text-black cursor-pointer"
-                    onClick={() => setShowModal(true)}
-                  />
+                 
                   <Link to={`/books/title/${book.title}`}>
                     <BsInfoCircle className="text-2xl hover:text-blue-800" />
                   </Link>
@@ -122,9 +118,7 @@ const ShowBookByGenre = () => {
                     <MdOutlineDelete className="text-2xl hover:text-blue-800" />
                   </Link>
                 </div>
-                {showModal && (
-                  <BookModal book={book} onClose={() => setShowModal(false)} />
-                )}
+              
               </div>
             ))}
           </div>
